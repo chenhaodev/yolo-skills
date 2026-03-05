@@ -1,0 +1,28 @@
+# livestock-stray (牛马占道) — YOLO training config
+# Model: yolov8m.pt (medium — good balance of speed and accuracy for cloud)
+
+model: yolov8m.pt
+data: ./data/data.yaml
+epochs: 100
+imgsz: 640
+batch: 16
+device: 0          # GPU index; use 'cpu' if no GPU available
+workers: 8
+project: ./runs
+name: livestock_stray_v1
+save: true
+val: true
+plots: true
+
+# Detection thresholds
+conf: 0.25         # confidence threshold (lower = more detections, more OOD candidates)
+iou: 0.45          # NMS IoU threshold
+
+# Augmentation
+hsv_h: 0.015       # hue shift — handles different lighting conditions
+hsv_s: 0.7         # saturation — handles overcast / sunny variation
+hsv_v: 0.4         # value — handles shadows on road surfaces
+flipud: 0.0        # no vertical flip (cattle walk on ground)
+fliplr: 0.5        # horizontal flip OK
+mosaic: 1.0        # mosaic augmentation — helps with small/distant animals
+degrees: 5.0       # slight rotation — handles camera angle variation
