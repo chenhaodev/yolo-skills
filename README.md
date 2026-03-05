@@ -2,10 +2,20 @@
 
 Claude Code skill suite for YOLO-based computer vision pipelines targeting rural/community daily life scenarios in China.
 
+## Demo
+
+<!-- GitHub renders <video> natively. For other viewers, the GIF preview below plays automatically. -->
+<video src="demo/demo-auto-build-algo-by-CC.mp4" controls width="100%">
+  <img src="demo/preview.gif" alt="Demo: Claude Code auto-building a 牛马占道 detection algorithm" width="100%"/>
+</video>
+
+> Full demo (4.6 min): Claude Code building a complete 牛马占道 (livestock-straying) detection algorithm from scratch — brainstorm → design → scaffold → smoke test with circle annotations.
+
 ## What's in this repo
 
 ```
 yolo-skills/
+├── demo/                       # Demo video + preview GIF
 ├── skills/yolo-rural/          # Claude Code skills (install to ~/.claude/skills/)
 │   ├── SKILL.md                # Root router
 │   ├── scaffold/SKILL.md       # Project scaffolding
@@ -57,9 +67,6 @@ cd livestock-stray-project
 
 # Train
 ./scripts/train.sh
-
-# Run inference
-./scripts/infer.sh /path/to/video.mp4
 
 # Smoke test with circle annotation
 python scripts/smoke_test.py
